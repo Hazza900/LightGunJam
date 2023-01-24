@@ -5,7 +5,6 @@ using UnityEngine.InputSystem;
 public class CameraMovement : MonoBehaviour
 {
     public Camera mainCamera;
-    public Camera polaroidCamera;
     [SerializeField] Vector2 mousePos;
 
     [SerializeField] Transform horizontalRotationPoint;
@@ -33,7 +32,6 @@ public class CameraMovement : MonoBehaviour
     void Update()
     {
         UpdateCameraPosition();
-        DetectEnemies();
     }
 
     void UpdateCameraPosition()
@@ -58,43 +56,4 @@ public class CameraMovement : MonoBehaviour
 
     //    Debug.DrawRay(worldPoint, mainCamera.transform.forward * 10, Color.black);
     //}
-    private void DetectEnemies()
-    {
-        Ray ray = new(polaroidCamera.transform.position, polaroidCamera.transform.forward);
-        RaycastHit hit;
-
-        if (Physics.SphereCast(ray.origin, sphereCastRadius, ray.direction * range, out hit, range, layerMask))
-        {
-            hit.transform.gameObject.SetActive(false);
-            print("HIT!");
-        }
-    }
-
-    [Range(0.1f, 1f)] public float sphereCastRadius;
-    [Range(1f, 100f)] public float range;
-    public LayerMask layerMask;
-    private void OnDrawGizmos()
-    {
-        Ray ray = new(polaroidCamera.transform.position, polaroidCamera.transform.forward);
-        RaycastHit hit;
-
-        Gizmos.DrawWireSphere(transform.position, range);
-
-        if (Physics.SphereCast(ray.origin, sphereCastRadius, ray.direction * range, out hit, range, layerMask))
-        {
-            Gizmos.color = Color.green;
-            Vector3 sphereCastMidpoint = ray.origin + (ray.direction * hit.distance);
-            Gizmos.DrawWireSphere(sphereCastMidpoint, sphereCastRadius);
-            Gizmos.DrawSphere(hit.point, 0.1f);
-            Debug.DrawLine(ray.origin, sphereCastMidpoint, Color.green);
-        }
-        else
-        {
-            Gizmos.color = Color.red;
-            Vector3 sphereCastMidpoint = ray.origin + (ray.direction * (range - sphereCastRadius));
-            Gizmos.DrawWireSphere(sphereCastMidpoint, sphereCastRadius);
-            Debug.DrawLine(ray.origin, sphereCastMidpoint, Color.red);
-        }
-    }
-
 }

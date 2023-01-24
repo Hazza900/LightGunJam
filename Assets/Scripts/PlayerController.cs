@@ -39,6 +39,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     TextMeshProUGUI ammoCount;
 
+    public Camera polaroidCamera;
+
     float delta;
 
     [SerializeField]
@@ -173,10 +175,9 @@ public class PlayerController : MonoBehaviour
             canReload = false;
         }
     }
-
     private void DetectEnemies()
     {
-        Ray ray = Camera.main.ScreenPointToRay(mouseInput);
+        Ray ray = new(polaroidCamera.transform.position, polaroidCamera.transform.forward);
         RaycastHit hit;
 
         if (Physics.SphereCast(ray.origin, sphereCastRadius, ray.direction * range, out hit, range, layerMask))
@@ -191,11 +192,9 @@ public class PlayerController : MonoBehaviour
     public LayerMask layerMask;
     private void OnDrawGizmos()
     {
-        Ray ray = Camera.main.ScreenPointToRay(mouseInput);
+        Ray ray = new(polaroidCamera.transform.position, polaroidCamera.transform.forward);
         RaycastHit hit;
 
-
- 
         Gizmos.DrawWireSphere(transform.position, range);
 
         if (Physics.SphereCast(ray.origin, sphereCastRadius, ray.direction * range, out hit, range, layerMask))
