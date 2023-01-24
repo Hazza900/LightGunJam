@@ -1,0 +1,4 @@
+repository "LightGunJam@GradUATeamJam@cloud"
+  path "/"
+    br "/main"
+    co "/main"
