@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class MyScript : MonoBehaviour
+public class CameraMovement : MonoBehaviour
 {
     public Camera mainCamera;
     [SerializeField] Vector2 mousePos;
