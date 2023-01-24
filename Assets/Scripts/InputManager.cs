@@ -6,6 +6,10 @@ using UnityEngine.InputSystem;
 public class InputManager : MonoBehaviour
 {
     PlayerInput playerInput;
+    bool shootInput;
+    bool reloadInput;
+
+
 
     private void Awake()
     {
@@ -16,7 +20,11 @@ public class InputManager : MonoBehaviour
     {
         playerInput.Player.Cursor.Enable();
         playerInput.Player.Shoot.Enable();
+        playerInput.Player.Shoot.performed += ctx => shootInput = true;
+        playerInput.Player.Shoot.canceled += ctx => shootInput = false;
         playerInput.Player.Reload.Enable();
+        playerInput.Player.Reload.performed += ctx => reloadInput = true;
+        playerInput.Player.Reload.canceled += ctx => reloadInput = false;
     }
 
     private void OnDisable()
@@ -31,13 +39,13 @@ public class InputManager : MonoBehaviour
         return playerInput.Player.Cursor.ReadValue<Vector2>();
     }
 
-    public float GetRClickInput()
+    public bool GetRClickInput()
     {
-        return playerInput.Player.Reload.ReadValue<float>();
+        return reloadInput;
     }
 
-    public float GetLClickInput()
+    public bool GetLClickInput()
     {
-        return playerInput.Player.Shoot.ReadValue<float>();
+        return shootInput;
     }
 }

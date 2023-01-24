@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.InputSystem.HID;
 
 public class PlayerController : MonoBehaviour
 {
@@ -10,58 +11,203 @@ public class PlayerController : MonoBehaviour
     InputManager inputManager;
 
     [SerializeField]
-    float reloadInput;
+    bool reloadInput;
     [SerializeField]
-    float shootInput;
+    bool shootInput;
+    [SerializeField]
+    Vector2 mouseInput;
 
-    bool shot;
+    bool shooting;
+    bool reloading;
+    bool canShoot;
     bool canReload;
 
     [SerializeField]
-    int ammo = 5;
+    int maxAmmo;
+    int ammo;
+
+    public float zAxis;
+    Vector3 mousePos;
 
 
     [SerializeField]
-    Image player;
+    Image playerReticleImage;
+    [SerializeField]
+    GameObject playerReticle;
+    [SerializeField]
+    GameObject player;
     [SerializeField]
     TextMeshProUGUI ammoCount;
+
+    float delta;
+
+    [SerializeField]
+    float shootCooldown;
+    [SerializeField]
+    float currentShootCooldown;
+
+    [SerializeField]
+    float reloadCooldown;
+    [SerializeField]
+    float currentReloadCooldown;
+
 
     // Start is called before the first frame update
     void Start()
     {
-
+        ammo = maxAmmo;
+        currentShootCooldown = 0;
+        currentReloadCooldown = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.position = inputManager.GetMouseInput();
-        //Debug.Log(inputManager.GetMouseInput());
+        GetInputs(); //retrieve inputs from input manager script
+        CheckAmmo(); //check ammo state and update booleans appropriately
+        HandleShoot(); //handle shoot action
+        HandleReload(); //handle reload action
+
+        delta = Time.deltaTime;
+
+        ammoCount.text = ammo.ToString();
+        playerReticleImage.transform.position = mouseInput;
+        mousePos = new Vector3(mouseInput.x, mouseInput.y, zAxis);
+        playerReticle.transform.position = Camera.main.ScreenToWorldPoint(mousePos);
+    }
+
+    private void FixedUpdate()
+    {
+        if (shooting && !shootInput)
+        {
+            if (currentShootCooldown < shootCooldown)
+            {
+                currentShootCooldown += delta * 10;
+            }
+            else
+            {
+                shooting = false;
+                currentShootCooldown = 0;
+                playerReticleImage.color = Color.green;
+            }
+        }
+
+        if (reloading && !reloadInput)
+        {
+            if (currentReloadCooldown < reloadCooldown)
+            {
+                currentReloadCooldown += delta * 10;
+                playerReticleImage.color = Color.yellow;
+            }
+            else
+            {
+                reloading = false;
+                ammo = maxAmmo;
+                currentReloadCooldown = 0;
+                playerReticleImage.color = Color.green;
+            }
+        }
+    }
+
+    private void GetInputs()
+    {
+        mouseInput = inputManager.GetMouseInput();
         shootInput = inputManager.GetLClickInput();
         reloadInput = inputManager.GetRClickInput();
+        
+    }
 
-        if (shootInput > 0 && shot == false && ammo > 0)
+    private void HandleShoot()
+    {
+        if(reloading)
         {
-            shot = true;
+            canShoot = false;
+            return;
+        }
+
+        if(canShoot && shootInput)
+        {
+            playerReticleImage.color = Color.red;
             ammo -= 1;
-            player.color = Color.red;
+            canShoot = false;
+            shooting = true;
+            DetectEnemies();
         }
-        else if(shootInput <= 0)
+    }
+
+    private void HandleReload()
+    {
+        if (shooting)
         {
-            shot = false;
-            player.color = Color.green;
+            canReload = false;
+            return;
         }
 
-        if (reloadInput > 0 && canReload)
+        if (canReload && reloadInput)
         {
-            ammo = 5;
+            reloading = true;
         }
+    }
 
-        if(ammo <= 0)
+    private void CheckAmmo()
+    {
+        if(ammo > 0 && !shooting)
+        {
+            canShoot = true;
+        }
+        if(ammo < maxAmmo)
         {
             canReload = true;
         }
+        if(ammo <= 0)
+        {
+            canShoot = false;
+            playerReticleImage.color = Color.yellow;
+        }
+        if(ammo >= maxAmmo)
+        {
+            canReload = false;
+        }
+    }
 
-        ammoCount.text = ammo.ToString();
+    private void DetectEnemies()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(mouseInput);
+        RaycastHit hit;
+
+        if (Physics.SphereCast(ray.origin, sphereCastRadius, ray.direction * range, out hit, range, layerMask))
+        {
+            hit.transform.gameObject.SetActive(false);
+            print("HIT!");
+        }
+    }
+
+    [Range(0.1f, 1f)] public float sphereCastRadius;
+    [Range(1f, 100f)] public float range;
+    public LayerMask layerMask;
+    private void OnDrawGizmos()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(mouseInput);
+        RaycastHit hit;
+
+
+ 
+        Gizmos.DrawWireSphere(transform.position, range);
+
+        if (Physics.SphereCast(ray.origin, sphereCastRadius, ray.direction * range, out hit, range, layerMask))
+        {
+            Gizmos.color = Color.green;
+            Vector3 sphereCastMidpoint = ray.origin + (ray.direction * hit.distance);
+            Gizmos.DrawWireSphere(sphereCastMidpoint, sphereCastRadius);
+            Gizmos.DrawSphere(hit.point, 0.1f);
+            Debug.DrawLine(ray.origin, sphereCastMidpoint, Color.green);
+        }
+        else
+        {
+            Gizmos.color = Color.red;
+            Vector3 sphereCastMidpoint = ray.origin + (ray.direction * (range - sphereCastRadius));
+            Gizmos.DrawWireSphere(sphereCastMidpoint, sphereCastRadius);
+            Debug.DrawLine(ray.origin, sphereCastMidpoint, Color.red);
+        }
     }
 }
