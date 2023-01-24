@@ -45,11 +45,13 @@ public class PlayerController : MonoBehaviour
     float shootCooldown;
     [SerializeField]
     float currentShootCooldown;
+    bool shootCooldownActive;
 
     [SerializeField]
     float reloadCooldown;
     [SerializeField]
     float currentReloadCooldown;
+    bool reloadCooldownActive;
 
 
     // Start is called before the first frame update
@@ -78,7 +80,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (shooting && !shootInput)
+        if (shooting && shootCooldownActive)
         {
             if (currentShootCooldown < shootCooldown)
             {
@@ -92,7 +94,7 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if (reloading && !reloadInput)
+        if (reloading && reloadCooldownActive)
         {
             if (currentReloadCooldown < reloadCooldown)
             {
@@ -131,6 +133,7 @@ public class PlayerController : MonoBehaviour
             ammo -= 1;
             canShoot = false;
             shooting = true;
+            shootCooldownActive = true;
             DetectEnemies();
         }
     }
@@ -146,6 +149,7 @@ public class PlayerController : MonoBehaviour
         if (canReload && reloadInput)
         {
             reloading = true;
+            reloadCooldownActive = true;
         }
     }
 
