@@ -789,8 +789,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4eb008350a1da44bb0ab13a1dc947d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCamera: {fileID: 0}
+  mainCamera: {fileID: 1451635129}
+  polaroidModel: {fileID: 2015563650}
   mousePos: {x: 0, y: 0, z: 0}
+  centerCoords: {x: 0, y: 0}
+  cameraDepth: 0
 --- !u!4 &1684877795
 Transform:
   m_ObjectHideFlags: 0
@@ -804,7 +807,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1772045065
 GameObject:
@@ -985,7 +988,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2142137468
 GameObject:

@@ -1,7 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -26,11 +22,17 @@ public class MyScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        mousePos = Mouse.current.position.ReadValue();
+        Mouse.current.position.ReadValue();
+        //GetWorldSpaceCoords();
     }
 
     void GetWorldSpaceCoords()
     {
-        
+        Vector2 mouseCoords = Mouse.current.position.ReadValue();
+
+        Vector3 screenPoint = new(mouseCoords.x, mouseCoords.y, 0);
+        Vector3 worldPoint = mainCamera.ScreenToWorldPoint(screenPoint);
+
+        Debug.DrawRay(worldPoint, mainCamera.transform.forward * 10, Color.black);
     }
 }
