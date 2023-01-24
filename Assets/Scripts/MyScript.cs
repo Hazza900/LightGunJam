@@ -4,8 +4,14 @@ using UnityEngine.InputSystem;
 public class MyScript : MonoBehaviour
 {
     public Camera mainCamera;
-    public GameObject polaroidModel;
-    [SerializeField] Vector3 mousePos;
+    [SerializeField] Vector2 mousePos;
+
+    [SerializeField] Transform horizontalRotationPoint;
+
+    [Tooltip("Up/Down")][SerializeField] private float maximumXrotation;
+    [Tooltip("Up/Down")][SerializeField] private float minimumXrotation;
+    [Tooltip("Left/Right")][SerializeField] private float maximumYrotation;
+    [Tooltip("Left/Right")][SerializeField] private float minimumYrotation;
 
     [SerializeField] private Vector2 centerCoords;
 
@@ -22,8 +28,20 @@ public class MyScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Mouse.current.position.ReadValue();
-        //GetWorldSpaceCoords();
+        UpdateCameraPosition();
+    }
+
+    void UpdateCameraPosition()
+    {
+        mousePos = Mouse.current.position.ReadValue();
+
+        // Get target Y (left/right) rotation based upon mouse position on screen
+        float targetRotationY = Mathf.Lerp(minimumYrotation, maximumYrotation, mousePos.x / Screen.width);
+
+        // Get target X (up/down) rotation based upon mouse position on screen
+        float targetRotationX = Mathf.Lerp(minimumXrotation, maximumXrotation, mousePos.y / Screen.height);
+
+        horizontalRotationPoint.localEulerAngles = new Vector3(targetRotationX, targetRotationY, 0);
     }
 
     void GetWorldSpaceCoords()
