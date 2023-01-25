@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: feb14189e08c6bd43b31974f77518d97
+guid: 1e65b53edf06af84998e44631b05bf95
 ModelImporter:
   serializedVersion: 21202
   internalIDToNameTable: []
@@ -7,8 +7,18 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Material
-    second: {fileID: 2100000, guid: 26cbc4d4ac685734c9d93b9de7a0c0fc, type: 2}
+      name: Fireplace
+    second: {fileID: 2100000, guid: 583a4fcdd54de664a948ac75a4f76614, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Trims
+    second: {fileID: 2100000, guid: 147ea682283cdec4f9fb81e77fd22914, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wallpaper
+    second: {fileID: 2100000, guid: 11c31f54595c17d48b8f126d6257cd65, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

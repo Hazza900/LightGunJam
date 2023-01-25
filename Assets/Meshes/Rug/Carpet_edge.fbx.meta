@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: feb14189e08c6bd43b31974f77518d97
+guid: 825aaa9a560ad754b8c41e14151c45d7
 ModelImporter:
   serializedVersion: 21202
   internalIDToNameTable: []
@@ -7,8 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Material
-    second: {fileID: 2100000, guid: 26cbc4d4ac685734c9d93b9de7a0c0fc, type: 2}
+      name: CarpetMid
+    second: {fileID: 2100000, guid: 18d6f55128cfb0245bc615e522dfc5b3, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
