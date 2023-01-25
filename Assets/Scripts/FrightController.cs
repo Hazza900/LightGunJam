@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FrightController : MonoBehaviour
 {
@@ -15,6 +16,9 @@ public class FrightController : MonoBehaviour
     private bool gameOverCountdownInProgress;
     public bool gameOver;
 
+    public List<Enemy> fearSources;
+    public Image frightImage;
+
     private void Start()
     {
         gameOverCountdownRemaining = gameOverCountdownDuration;
@@ -22,12 +26,24 @@ public class FrightController : MonoBehaviour
 
     void Update()
     {
+        frightImage.fillAmount = frightLevel / maximumFright;
+
         if (!gameOver)
         {
             if (gameOverCountdownInProgress)
                 GameOverCountdown();
 
+            AddFear();
             GameOverCheck();
+        }
+    }
+
+    private void AddFear()
+    {
+        foreach (Enemy enemy in fearSources)
+        {
+            frightLevel += enemy.fearPerSecond * Time.deltaTime;
+            Mathf.Clamp(frightLevel, 0, maximumFright);
         }
     }
 
