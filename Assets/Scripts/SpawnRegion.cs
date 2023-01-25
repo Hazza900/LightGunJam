@@ -23,6 +23,8 @@ public class SpawnRegion : MonoBehaviour
     [SerializeField]
     List<Transform> regionSpawnLocations;
     [SerializeField]
+    List<GameObject> specialSpawns;
+    [SerializeField]
     float spawnCooldown;
     [SerializeField]
     float currentSpawnCooldown;
@@ -107,6 +109,9 @@ public class SpawnRegion : MonoBehaviour
         {
             enemySpawnManager.spawnLocations.Clear();
             enemySpawnManager.spawnLocations.AddRange(regionSpawnLocations);
+
+            enemySpawnManager.specialEnemyTypes.Clear();
+            if(specialSpawns.Count > 0) enemySpawnManager.specialEnemyTypes.AddRange(specialSpawns);
 
            
             if((int)regionType == 0)

@@ -93,7 +93,7 @@ public class PlayerController : MonoBehaviour
             {
                 shooting = false;
                 currentShootCooldown = 0;
-                playerReticleImage.color = Color.green;
+                playerReticleImage.color = new Color(0, 1, 0, 0.4f); //Green
             }
         }
 
@@ -102,18 +102,22 @@ public class PlayerController : MonoBehaviour
             if (currentReloadCooldown < reloadCooldown)
             {
                 currentReloadCooldown += delta;
-                playerReticleImage.color = Color.yellow;
+                playerReticleImage.color = new Color(1, 0.92f, 0.016f, 0.4f); //Yellow
             }
             else
             {
                 reloading = false;
                 ammo = maxAmmo;
                 currentReloadCooldown = 0;
-                playerReticleImage.color = Color.green;
+                playerReticleImage.color = new Color(0, 1, 0, 0.4f);
             }
         }
 
         ammoCount.text = ammo.ToString();
+        if(ammo == 0)
+        {
+            ammoCount.text = "EMPTY";
+        }
         //playerReticleImage.transform.position = mouseInput;
         mousePos = new Vector3(mouseInput.x, mouseInput.y, zAxis);
         playerReticle.transform.position = Camera.main.ScreenToWorldPoint(mousePos);
@@ -139,7 +143,7 @@ public class PlayerController : MonoBehaviour
         if(canShoot && shootInput)
         {
             print(canShoot);
-            playerReticleImage.color = Color.red;
+            playerReticleImage.color = new Color(1, 0, 0, 0.4f);
             ammo -= 1;
             canShoot = false;
             shooting = true;
@@ -176,7 +180,7 @@ public class PlayerController : MonoBehaviour
         if(ammo <= 0)
         {
             canShoot = false;
-            playerReticleImage.color = Color.yellow;
+            playerReticleImage.color = new Color(1, 0.92f, 0.016f, 0.4f);
         }
         if(ammo >= maxAmmo)
         {

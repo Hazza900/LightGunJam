@@ -266,7 +266,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.0037219524, g: 1, b: 0, a: 1}
+  m_Color: {r: 0.0037219524, g: 1, b: 0, a: 0.3529412}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -312,7 +312,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4597756987787262152, guid: 00741807c81650f49931c9e06a9bd7e4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.99
+      value: -0.02
       objectReference: {fileID: 0}
     - target: {fileID: 4597756987787262152, guid: 00741807c81650f49931c9e06a9bd7e4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -458,7 +458,7 @@ MonoBehaviour:
   reloadInput: 0
   shootInput: 0
   mouseInput: {x: 0, y: 0}
-  maxAmmo: 0
+  maxAmmo: 6
   zAxis: 0
   playerReticleImage: {fileID: 6901239435163575955}
   playerReticle: {fileID: 5743290135905491264}

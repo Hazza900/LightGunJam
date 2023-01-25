@@ -6,10 +6,10 @@ public class EnemySpawnManager : MonoBehaviour
 {
     [SerializeField]
     List<GameObject> normalEnemyTypes;
-    [SerializeField]
-    List<GameObject> specialEnemyTypes;
 
+    public List<GameObject> specialEnemyTypes;
     public List<Transform> spawnLocations;
+
     int enemyIndex;
     int locationIndex;
 
@@ -18,7 +18,8 @@ public class EnemySpawnManager : MonoBehaviour
 
     public void SpawnEnemy()
     {
-        typeOfSpawn = Random.Range(0, 2);
+        if (specialEnemyTypes.Count > 0) typeOfSpawn = Random.Range(0, 2);
+        else typeOfSpawn = 0;
 
         if(typeOfSpawn == 0)
         {
@@ -27,7 +28,7 @@ public class EnemySpawnManager : MonoBehaviour
             {
                 locationIndex = Random.Range(0, spawnLocations.Count);
                 Instantiate(normalEnemyTypes[enemyIndex], spawnLocations[locationIndex].position, spawnLocations[locationIndex].rotation);
-                spawnLocations.RemoveAt(enemyIndex);
+                spawnLocations.RemoveAt(locationIndex);
             }
             else
             {
@@ -50,7 +51,7 @@ public class EnemySpawnManager : MonoBehaviour
                 {
                     locationIndex = Random.Range(0, spawnLocations.Count);
                     Instantiate(normalEnemyTypes[enemyIndex], spawnLocations[locationIndex].position, spawnLocations[locationIndex].rotation);
-                    spawnLocations.RemoveAt(enemyIndex);
+                    spawnLocations.RemoveAt(locationIndex);
                 }
                 else
                 {
