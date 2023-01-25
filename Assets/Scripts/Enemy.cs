@@ -16,6 +16,10 @@ public class Enemy : MonoBehaviour
     [HideInInspector]
     public float ghostVisibilityTime;
 
+    public float fearPerSecond;
+    public float ghostFearReduction;
+
+
     public void PlayAnimation()
     {
 
@@ -25,7 +29,5 @@ public class Enemy : MonoBehaviour
     {
 
     }
-
-
 
 }
