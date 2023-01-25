@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6852002479132161407}
   - component: {fileID: -526871202763451289}
   - component: {fileID: 2235792950253063807}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: fake ghost 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,3 +115,4 @@ MonoBehaviour:
   ghostSFX: {fileID: 0}
   ghostAnimation: {fileID: 0}
   ghostVisibilityTime: 0
+  currentLocation: {fileID: 0}

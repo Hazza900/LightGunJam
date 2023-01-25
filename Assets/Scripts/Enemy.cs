@@ -16,14 +16,6 @@ public class Enemy : MonoBehaviour
     [HideInInspector]
     public float ghostVisibilityTime;
 
-    [HideInInspector]
-    public SpawnLocation currentLocation;
-
-    private void Start()
-    {
-        currentLocation.occupied = true;
-    }
-
     public void PlayAnimation()
     {
 

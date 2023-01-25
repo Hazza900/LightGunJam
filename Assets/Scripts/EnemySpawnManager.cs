@@ -5,40 +5,62 @@ using UnityEngine;
 public class EnemySpawnManager : MonoBehaviour
 {
     [SerializeField]
-    EnemyTypes[] enemyTypes;
-    
-    public List<GameObject> spawnLocations;
+    List<GameObject> normalEnemyTypes;
+    [SerializeField]
+    List<GameObject> specialEnemyTypes;
+
+    public List<Transform> spawnLocations;
     int enemyIndex;
     int locationIndex;
+
+    int typeOfSpawn;
 
 
     public void SpawnEnemy()
     {
-        enemyIndex = Random.Range(0, enemyTypes.Length);
-        if (spawnLocations.Count > 0)
+        typeOfSpawn = Random.Range(0, 2);
+
+        if(typeOfSpawn == 0)
         {
-            locationIndex = Random.Range(0, spawnLocations.Count);
-            if (spawnLocations[locationIndex].GetComponent<SpawnLocation>().occupied)
+            enemyIndex = Random.Range(0, normalEnemyTypes.Count);
+            if (spawnLocations.Count > 0)
             {
                 locationIndex = Random.Range(0, spawnLocations.Count);
+                Instantiate(normalEnemyTypes[enemyIndex], spawnLocations[locationIndex].position, spawnLocations[locationIndex].rotation);
+                spawnLocations.RemoveAt(enemyIndex);
+            }
+            else
+            {
+                return;
             }
         }
-        else
+
+        else if(typeOfSpawn == 1)
         {
-            return;
+            enemyIndex = Random.Range(0, specialEnemyTypes.Count);
+
+            if (!specialEnemyTypes[enemyIndex].activeSelf)
+            {
+                specialEnemyTypes[enemyIndex].SetActive(true);
+            }
+            else
+            {
+                enemyIndex = Random.Range(0, normalEnemyTypes.Count);
+                if (spawnLocations.Count > 0)
+                {
+                    locationIndex = Random.Range(0, spawnLocations.Count);
+                    Instantiate(normalEnemyTypes[enemyIndex], spawnLocations[locationIndex].position, spawnLocations[locationIndex].rotation);
+                    spawnLocations.RemoveAt(enemyIndex);
+                }
+                else
+                {
+                    return;
+                }
+            }
+
         }
 
-        
 
-        
-
-        Enemy spawnedEnemy = Instantiate(enemyTypes[enemyIndex].ghostPrefab, spawnLocations[locationIndex].transform.position, spawnLocations[locationIndex].transform.rotation).GetComponent<Enemy>();
-        spawnedEnemy.ghostType = (int)enemyTypes[enemyIndex].ghostType;
-        spawnedEnemy.ghostAnimation = enemyTypes[enemyIndex].ghostAnimation;
-        spawnedEnemy.ghostSFX = enemyTypes[enemyIndex].ghostSFX;
-        spawnedEnemy.ghostPointValue = enemyTypes[enemyIndex].ghostPointValue;
-        spawnedEnemy.ghostVisibilityTime = enemyTypes[enemyIndex].ghostVisibilityTime;
-        spawnedEnemy.currentLocation = spawnLocations[locationIndex].GetComponent<SpawnLocation>();
-        spawnLocations.RemoveAt(locationIndex);
+       
     }
 }

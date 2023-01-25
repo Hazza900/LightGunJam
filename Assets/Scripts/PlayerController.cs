@@ -60,6 +60,10 @@ public class PlayerController : MonoBehaviour
     float currentReloadCooldown;
     bool reloadCooldownActive;
 
+    
+    public float defaultPlayerSpeed;
+    public float playerSlowSpeed;
+
 
     // Start is called before the first frame update
     void Start()
@@ -79,21 +83,13 @@ public class PlayerController : MonoBehaviour
 
         delta = Time.deltaTime;
 
-        ammoCount.text = ammo.ToString();
-        //playerReticleImage.transform.position = mouseInput;
-        mousePos = new Vector3(mouseInput.x, mouseInput.y, zAxis);
-        playerReticle.transform.position = Camera.main.ScreenToWorldPoint(mousePos);
-    }
-
-    private void FixedUpdate()
-    {
         if (shooting && shootCooldownActive)
         {
-            if (currentShootCooldown < shootCooldown)
+            if (currentShootCooldown < shootCooldown && !shootInput)
             {
-                currentShootCooldown += delta * 10;
+                currentShootCooldown += delta;
             }
-            else
+            else if(currentShootCooldown >= shootCooldown)
             {
                 shooting = false;
                 currentShootCooldown = 0;
@@ -105,7 +101,7 @@ public class PlayerController : MonoBehaviour
         {
             if (currentReloadCooldown < reloadCooldown)
             {
-                currentReloadCooldown += delta * 10;
+                currentReloadCooldown += delta;
                 playerReticleImage.color = Color.yellow;
             }
             else
@@ -116,7 +112,13 @@ public class PlayerController : MonoBehaviour
                 playerReticleImage.color = Color.green;
             }
         }
+
+        ammoCount.text = ammo.ToString();
+        //playerReticleImage.transform.position = mouseInput;
+        mousePos = new Vector3(mouseInput.x, mouseInput.y, zAxis);
+        playerReticle.transform.position = Camera.main.ScreenToWorldPoint(mousePos);
     }
+
 
     private void GetInputs()
     {
@@ -136,6 +138,7 @@ public class PlayerController : MonoBehaviour
 
         if(canShoot && shootInput)
         {
+            print(canShoot);
             playerReticleImage.color = Color.red;
             ammo -= 1;
             canShoot = false;
@@ -206,10 +209,7 @@ public class PlayerController : MonoBehaviour
             print("Fake!");
             scoreManager.RemovePoints(enemy.ghostPointValue);
         }
-
-        enemy.currentLocation.occupied = false;
-        enemySpawnManager.spawnLocations.Add(enemy.currentLocation.gameObject);
-        enemy.gameObject.SetActive(false);
+        GameObject.Destroy(enemy.gameObject);
 
     }
 
