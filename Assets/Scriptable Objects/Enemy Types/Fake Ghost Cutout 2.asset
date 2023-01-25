@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ddc51ed23b719c4698a3591e35df1e4, type: 3}
+  m_Name: Fake Ghost Cutout 2
+  m_EditorClassIdentifier: 
+  ghostType: 1
+  ghostPrefab: {fileID: 4983846101700143129, guid: d30d4913edfad964e851322612201f94, type: 3}
+  ghostPointValue: 7
+  ghostSFX: {fileID: 0}
+  ghostAnimation: {fileID: 0}
+  ghostVisibilityTime: 0

@@ -25,6 +25,8 @@ public class CameraMovement : MonoBehaviour
         var height = Screen.height;
         Vector2 centerCoords = new Vector2(width/2, height/2);
         Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.lockState = CursorLockMode.Confined;
 
     }
 

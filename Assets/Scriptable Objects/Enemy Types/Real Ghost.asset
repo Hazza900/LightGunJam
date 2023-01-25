@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ddc51ed23b719c4698a3591e35df1e4, type: 3}
+  m_Name: Real Ghost
+  m_EditorClassIdentifier: 
+  ghostType: 0
+  ghostPrefab: {fileID: 919132149155446097, guid: 704f2305fe9aacd4491cc68e1131daab, type: 3}
+  ghostPointValue: 0
+  ghostSFX: {fileID: 0}
+  ghostAnimation: {fileID: 0}
+  ghostVisibilityTime: 0

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3588472631003780565
+--- !u!1 &9031823483213236805
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,49 +8,49 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7893757644176824753}
-  - component: {fileID: 887989645221029849}
-  - component: {fileID: 8099935820345488307}
-  - component: {fileID: -2204048444096858948}
-  - component: {fileID: -4803428320758264947}
-  m_Layer: 3
-  m_Name: fake ghost 2
+  - component: {fileID: 6947089748095022415}
+  - component: {fileID: 6321654473526429968}
+  - component: {fileID: 3433580361313584083}
+  - component: {fileID: 59695163877677228}
+  - component: {fileID: 8554839906028299406}
+  m_Layer: 0
+  m_Name: BallroomRegion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7893757644176824753
+--- !u!4 &6947089748095022415
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3588472631003780565}
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_GameObject: {fileID: 9031823483213236805}
+  m_LocalRotation: {x: -0.50000054, y: -0.5, z: -0.49999952, w: 0.50000006}
+  m_LocalPosition: {x: 12.8142, y: 5.77, z: 40.4972}
+  m_LocalScale: {x: 14.21567, y: 31.411919, z: 5.560799}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &887989645221029849
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: -90}
+--- !u!33 &6321654473526429968
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3588472631003780565}
-  m_Mesh: {fileID: 7673089054758155456, guid: 48909103914cdd5489a38f99dff09437, type: 3}
---- !u!23 &8099935820345488307
+  m_GameObject: {fileID: 9031823483213236805}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &3433580361313584083
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3588472631003780565}
-  m_Enabled: 1
+  m_GameObject: {fileID: 9031823483213236805}
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a48bd9c8c98daf74ea305fa16c737116, type: 2}
+  - {fileID: 2100000, guid: 5a26de236ce89e94b963be8fa2b7ade6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -85,33 +85,29 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &-2204048444096858948
+--- !u!65 &59695163877677228
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3588472631003780565}
+  m_GameObject: {fileID: 9031823483213236805}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.23441547, y: 0.23441553, z: 1.0588652}
-  m_Center: {x: 0, y: -0.000000003725291, z: 0.52649623}
---- !u!114 &-4803428320758264947
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8554839906028299406
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3588472631003780565}
+  m_GameObject: {fileID: 9031823483213236805}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12109ff1a1d7ebc4fadd9462f2588277, type: 3}
+  m_Script: {fileID: 11500000, guid: e4da80a9218f0b64cb59a4a2518fc46f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ghostType: 0
-  ghostPointValue: 0
-  ghostSFX: {fileID: 0}
-  ghostAnimation: {fileID: 0}
-  ghostVisibilityTime: 0
+  regionType: 0

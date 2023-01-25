@@ -5,7 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/Jack playground.unity
-    guid: 809502b03603e1446aa630076e2459db
+    path: Assets/Scenes/Jack Playground.unity
+    guid: eec4c7fdd0feff24c92911032847ffeb
   m_configObjects: {}

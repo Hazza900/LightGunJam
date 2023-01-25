@@ -4,11 +4,16 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.InputSystem.HID;
+using Unity.Burst.CompilerServices;
 
 public class PlayerController : MonoBehaviour
 {
     [SerializeField]
     InputManager inputManager;
+    [SerializeField]
+    ScoreManager scoreManager;
+    [SerializeField]
+    EnemySpawnManager enemySpawnManager;
 
     [SerializeField]
     bool reloadInput;
@@ -75,7 +80,7 @@ public class PlayerController : MonoBehaviour
         delta = Time.deltaTime;
 
         ammoCount.text = ammo.ToString();
-        playerReticleImage.transform.position = mouseInput;
+        //playerReticleImage.transform.position = mouseInput;
         mousePos = new Vector3(mouseInput.x, mouseInput.y, zAxis);
         playerReticle.transform.position = Camera.main.ScreenToWorldPoint(mousePos);
     }
@@ -182,9 +187,30 @@ public class PlayerController : MonoBehaviour
 
         if (Physics.SphereCast(ray.origin, sphereCastRadius, ray.direction * range, out hit, range, layerMask))
         {
-            hit.transform.gameObject.SetActive(false);
-            print("HIT!");
+            CheckEnemyType(hit);
         }
+    }
+
+    private void CheckEnemyType(RaycastHit hitEnemy)
+    {
+        Enemy enemy = hitEnemy.transform.GetComponent<Enemy>();
+
+        if ((int)enemy.ghostType == 0)
+        {
+            print("Real!");
+            scoreManager.AddPoints(enemy.ghostPointValue);
+            
+        }
+        else if ((int)enemy.ghostType == 1)
+        {
+            print("Fake!");
+            scoreManager.RemovePoints(enemy.ghostPointValue);
+        }
+
+        enemy.currentLocation.occupied = false;
+        enemySpawnManager.spawnLocations.Add(enemy.currentLocation.gameObject);
+        enemy.gameObject.SetActive(false);
+
     }
 
     [Range(0.1f, 1f)] public float sphereCastRadius;
