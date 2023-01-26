@@ -92,7 +92,7 @@ Material:
     - _SrcBlend: 1
     - _UVSec: 0
     - _ZWrite: 1
-    - _cut_off_height: 9.6
+    - _cut_off_height: 15
     - _dissolve: -1
     - _edge_width: 0.15
     - _noise_scale: 25.07
