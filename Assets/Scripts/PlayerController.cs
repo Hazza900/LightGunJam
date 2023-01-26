@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.InputSystem.HID;
 using Unity.Burst.CompilerServices;
+using UnityEngine.Audio;
 
 public class PlayerController : MonoBehaviour
 {
@@ -14,6 +15,14 @@ public class PlayerController : MonoBehaviour
     ScoreManager scoreManager;
     [SerializeField]
     EnemySpawnManager enemySpawnManager;
+
+    [SerializeField]
+    AudioClip shotSFX;
+    [SerializeField]
+    AudioClip reloadSFX;
+
+    [SerializeField]
+    AudioSource playerSource;
 
     [SerializeField]
     bool reloadInput;
@@ -59,11 +68,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     float currentReloadCooldown;
     bool reloadCooldownActive;
-
-    
-    public float defaultPlayerSpeed;
-    public float playerSlowSpeed;
-
 
     // Start is called before the first frame update
     void Start()
@@ -148,6 +152,7 @@ public class PlayerController : MonoBehaviour
             canShoot = false;
             shooting = true;
             shootCooldownActive = true;
+            PlayShotSound();
             DetectEnemies();
         }
     }
@@ -164,6 +169,7 @@ public class PlayerController : MonoBehaviour
         {
             reloading = true;
             reloadCooldownActive = true;
+            PlayReloadSound();
         }
     }
 
@@ -202,18 +208,21 @@ public class PlayerController : MonoBehaviour
     {
         Enemy enemy = hitEnemy.transform.GetComponent<Enemy>();
 
-        if ((int)enemy.ghostType == 0)
+        if (enemy.ghostType == 0 || enemy.ghostType == 2)
         {
             print("Real!");
+            enemy.KillGhost();
+            enemy.PlaySFX();
             scoreManager.AddPoints(enemy.ghostPointValue);
             
         }
-        else if ((int)enemy.ghostType == 1)
+        else if (enemy.ghostType == 1)
         {
             print("Fake!");
             scoreManager.RemovePoints(enemy.ghostPointValue);
+            enemy.PlaySFX();
+            GameObject.Destroy(enemy.gameObject);
         }
-        GameObject.Destroy(enemy.gameObject);
 
     }
 
@@ -242,5 +251,17 @@ public class PlayerController : MonoBehaviour
             Gizmos.DrawWireSphere(sphereCastMidpoint, sphereCastRadius);
             Debug.DrawLine(ray.origin, sphereCastMidpoint, Color.red);
         }
+    }
+
+    void PlayReloadSound()
+    {
+        playerSource.clip = reloadSFX;
+        playerSource.Play();
+    }
+
+    void PlayShotSound()
+    {
+        playerSource.clip = shotSFX;
+        playerSource.Play();
     }
 }

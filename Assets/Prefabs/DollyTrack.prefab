@@ -55,81 +55,153 @@ MonoBehaviour:
     roll: 0
   - position: {x: 10.841429, y: 0, z: 0}
     roll: 0
-  - position: {x: 18.422152, y: 0, z: -0.0000030740566}
+  - position: {x: 17.738369, y: 0, z: -0.0035737562}
     roll: 0
-  - position: {x: 20.596722, y: 0, z: 0.40014103}
+  - position: {x: 18.971203, y: 0, z: 2.1706533}
     roll: 0
-  - position: {x: 21.041145, y: 0, z: 2.1618125}
+  - position: {x: 19.041069, y: 0, z: 5.7179136}
     roll: 0
-  - position: {x: 21.052942, y: 0, z: 5.708305}
+  - position: {x: 19.053087, y: 0, z: 9.439455}
     roll: 0
-  - position: {x: 21.12204, y: 0, z: 9.385853}
-    roll: 0
-  - position: {x: 21.810728, y: 0, z: 10.875772}
+  - position: {x: 20.159584, y: 0, z: 10.937529}
     roll: 0
   - position: {x: 23.588058, y: 0, z: 11.079328}
     roll: 0
   - position: {x: 27.217316, y: 0, z: 11.08411}
     roll: 0
-  - position: {x: 30.104149, y: 0, z: 10.9886055}
+  - position: {x: 29.925451, y: 0, z: 10.324366}
     roll: 0
-  - position: {x: 32.023216, y: 0, z: 10.22129}
+  - position: {x: 30.255404, y: 0, z: 8.155601}
     roll: 0
-  - position: {x: 32.172638, y: 0, z: 7.881094}
+  - position: {x: 30.156563, y: 0, z: 5.540008}
     roll: 0
-  - position: {x: 32.07645, y: 0, z: 3.8931358}
+  - position: {x: 30.15656, y: 0, z: 2.481672}
     roll: 0
-  - position: {x: 32.076454, y: 0, z: -1.6861291}
+  - position: {x: 30.15656, y: 0, z: -1.6861291}
     roll: 0
-  - position: {x: 32.076458, y: 0, z: -7.2653937}
+  - position: {x: 30.080847, y: 0, z: -7.2432365}
     roll: 0
-  - position: {x: 32.07646, y: 0, z: -12.844658}
+  - position: {x: 29.946114, y: 0, z: -12.669151}
     roll: 0
-  - position: {x: 31.93412, y: 0, z: -18.423923}
+  - position: {x: 29.86035, y: 0, z: -18.386871}
     roll: 0
-  - position: {x: 31.832802, y: 0, z: -21.349247}
+  - position: {x: 29.846104, y: 0, z: -20.90992}
     roll: 0
-  - position: {x: 30.978693, y: 0, z: -22.407896}
+  - position: {x: 29.421757, y: 0, z: -21.889954}
     roll: 0
-  - position: {x: 29.375086, y: 0, z: -22.552677}
+  - position: {x: 28.72199, y: 0, z: -22.339674}
     roll: 0
-  - position: {x: 27.771479, y: 0, z: -22.540867}
+  - position: {x: 27.661764, y: 0, z: -22.445595}
     roll: 0
-  - position: {x: 26.167871, y: 0, z: -22.54087}
+  - position: {x: 26.120848, y: 0, z: -22.459038}
     roll: 0
-  - position: {x: 24.564264, y: 0, z: -22.54087}
+  - position: {x: 24.528065, y: 0, z: -22.454332}
     roll: 0
-  - position: {x: 22.960657, y: 0, z: -22.54087}
+  - position: {x: 22.93492, y: 0, z: -22.45433}
     roll: 0
-  - position: {x: 21.35705, y: 0, z: -22.54087}
+  - position: {x: 21.35705, y: 0, z: -22.45433}
     roll: 0
-  - position: {x: 19.753443, y: 0, z: -22.54087}
+  - position: {x: 19.753443, y: 0, z: -22.45433}
     roll: 0
-  - position: {x: 18.149836, y: 0, z: -22.54087}
+  - position: {x: 18.149836, y: 0, z: -22.45433}
     roll: 0
-  - position: {x: 16.546228, y: 0, z: -22.54087}
+  - position: {x: 16.546228, y: 0, z: -22.45433}
     roll: 0
-  - position: {x: 14.942621, y: 0, z: -22.54087}
+  - position: {x: 14.942621, y: 0, z: -22.45433}
     roll: 0
-  - position: {x: 13.339014, y: 0, z: -22.54087}
+  - position: {x: 13.339014, y: 0, z: -22.45433}
     roll: 0
-  - position: {x: 11.735407, y: 0, z: -22.54087}
+  - position: {x: 11.735407, y: 0, z: -22.45433}
     roll: 0
-  - position: {x: 10.1318, y: 0, z: -22.54087}
+  - position: {x: 10.1318, y: 0, z: -22.45433}
     roll: 0
-  - position: {x: 8.5281925, y: 0, z: -22.54087}
+  - position: {x: 8.5281925, y: 0, z: -22.45433}
     roll: 0
-  - position: {x: 6.8354673, y: 0, z: -22.4574}
+  - position: {x: 5.8793063, y: 0, z: -22.45433}
     roll: 0
-  - position: {x: 5.5643234, y: 0, z: -21.7171}
+  - position: {x: 3.703009, y: 0, z: -21.983982}
     roll: 0
-  - position: {x: 5.3255243, y: 0, z: -20.192726}
+  - position: {x: 3.3634832, y: 0, z: -20.162949}
     roll: 0
-  - position: {x: 5.3410697, y: 0, z: -18.57552}
+  - position: {x: 3.3966537, y: 0, z: -17.633017}
     roll: 0
-  - position: {x: 5.379922, y: 0, z: -16.678463}
+  - position: {x: 3.9443893, y: 0, z: -15.555446}
     roll: 0
-  - position: {x: 6.2683306, y: 0, z: -15.4307375}
+  - position: {x: 5.8102436, y: 0.07428616, z: -15.276488}
     roll: 0
-  - position: {x: 7.844637, y: 0, z: -15.2760725}
+  - position: {x: 7.844637, y: 1.0892234, z: -15.2760725}
+    roll: 0
+  - position: {x: 10.213046, y: 2.734025, z: -15.194079}
+    roll: 0
+  - position: {x: 10.689001, y: 3.2927277, z: -13.483236}
+    roll: 0
+  - position: {x: 10.710574, y: 4.387767, z: -11.772394}
+    roll: 0
+  - position: {x: 10.732147, y: 5.635151, z: -10.061552}
+    roll: 0
+  - position: {x: 10.651799, y: 6.882535, z: -8.155511}
+    roll: 0
+  - position: {x: 10.67059, y: 6.4, z: -6.2832284}
+    roll: 0
+  - position: {x: 10.7869835, y: 6.4, z: -4.2971663}
+    roll: 0
+  - position: {x: 10.842334, y: 6.4, z: -1.8321613}
+    roll: 0
+  - position: {x: 11.356941, y: 6.4, z: 0.01648846}
+    roll: 0
+  - position: {x: 13.56883, y: 6.4, z: 0.2916679}
+    roll: 0
+  - position: {x: 16.446339, y: 6.4, z: 0.28573394}
+    roll: 0
+  - position: {x: 18.419596, y: 6.4, z: 0.21182606}
+    roll: 0
+  - position: {x: 19.44738, y: 6.4, z: -0.5818889}
+    roll: 0
+  - position: {x: 19.578796, y: 6.4, z: -2.6265602}
+    roll: 0
+  - position: {x: 19.500872, y: 6.4, z: -6.1361475}
+    roll: 0
+  - position: {x: 19.406136, y: 6.4, z: -9.314183}
+    roll: 0
+  - position: {x: 19.922472, y: 6.4, z: -11.98424}
+    roll: 0
+  - position: {x: 23.118782, y: 6.4, z: -12.375057}
+    roll: 0
+  - position: {x: 26.95871, y: 6.4, z: -12.461474}
+    roll: 0
+  - position: {x: 29.734709, y: 6.4, z: -11.856078}
+    roll: 0
+  - position: {x: 30.170883, y: 6.4, z: -7.265595}
+    roll: 0
+  - position: {x: 30.294582, y: 6.4, z: -2.3157651}
+    roll: 0
+  - position: {x: 30.282782, y: 6.4, z: 2.7028058}
+    roll: 0
+  - position: {x: 30.878334, y: 6.4, z: 6.199082}
+    roll: 0
+  - position: {x: 33.987804, y: 6.4, z: 6.6350436}
+    roll: 0
+  - position: {x: 37.555035, y: 6.4, z: 6.613461}
+    roll: 0
+  - position: {x: 40.846634, y: 6.4, z: 6.145238}
+    roll: 0
+  - position: {x: 41.272266, y: 6.4, z: 3.2948694}
+    roll: 0
+  - position: {x: 41.41653, y: 6.4, z: 1.0270915}
+    roll: 0
+  - position: {x: 42.840164, y: 6.4, z: 0.23789944}
+    roll: 0
+  - position: {x: 45.742466, y: 6.4, z: 0.103375174}
+    roll: 0
+  - position: {x: 48.644768, y: 6.4, z: 0.1033752}
+    roll: 0
+  - position: {x: 51.54707, y: 6.4, z: 0.1033752}
+    roll: 0
+  - position: {x: 54.44937, y: 6.4, z: 0.1033752}
+    roll: 0
+  - position: {x: 57.351673, y: 6.4, z: 0.1033752}
+    roll: 0
+  - position: {x: 60.253975, y: 6.4, z: 0.1033752}
+    roll: 0
+  - position: {x: 63.668514, y: 6.4, z: 0.10337633}
     roll: 0

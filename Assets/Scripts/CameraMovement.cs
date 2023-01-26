@@ -39,6 +39,7 @@ public class CameraMovement : MonoBehaviour
     void UpdateCameraPosition()
     {
         mousePos = Mouse.current.position.ReadValue();
+        mousePos.x = Mathf.Clamp(mousePos.x, 60, 1850);
 
         // Get target Y (left/right) rotation based upon mouse position on screen
         float targetRotationY = Mathf.Lerp(minimumYrotation, maximumYrotation, mousePos.x / Screen.width);

@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 3219154941999836652}
   - component: {fileID: 2140715269622317014}
   - component: {fileID: 6735317596228042928}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: posessed ghost 2
-  m_TagString: Untagged
+  m_TagString: Ghost
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -112,13 +112,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12109ff1a1d7ebc4fadd9462f2588277, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ghostType: 0
-  ghostPointValue: 0
-  ghostSFX: {fileID: 0}
-  ghostAnimation: {fileID: 0}
-  ghostVisibilityTime: 0
-  fearPerSecond: 0
-  ghostFearReduction: 0
+  ghostType: 2
+  ghostPointValue: 10
+  ghostSFX:
+  - {fileID: 8300000, guid: 82451c835973cfc4197166fc4d346c5e, type: 3}
+  - {fileID: 8300000, guid: 336f02e38a13dac46a3ceda3db2e01ad, type: 3}
+  - {fileID: 8300000, guid: a34644795c7ab6a4b809c4ca242d32a1, type: 3}
+  - {fileID: 8300000, guid: ce73d98355ff0be43bc1497412f6ded5, type: 3}
+  - {fileID: 8300000, guid: 1eb7e90969a5596489cdfaadfc24995d, type: 3}
+  - {fileID: 8300000, guid: 21261bbb066cc3a4cb729981cb780773, type: 3}
+  - {fileID: 8300000, guid: ae31f8990e744fd45899341cda989035, type: 3}
+  ghostMat: {fileID: 0}
+  fearPerSecond: 1
+  ghostFearReduction: 3
 --- !u!1001 &3600552505884883283
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -129,6 +135,10 @@ PrefabInstance:
     - target: {fileID: 2621910246960723989, guid: a7cb92615fcb39e44ad62ab35171bc59, type: 3}
       propertyPath: m_Name
       value: posessed
+      objectReference: {fileID: 0}
+    - target: {fileID: 2621910246960723989, guid: a7cb92615fcb39e44ad62ab35171bc59, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8384770634944122057, guid: a7cb92615fcb39e44ad62ab35171bc59, type: 3}
       propertyPath: m_RootOrder
@@ -203,6 +213,10 @@ PrefabInstance:
     - target: {fileID: 2621910246960723989, guid: a7cb92615fcb39e44ad62ab35171bc59, type: 3}
       propertyPath: m_Name
       value: posessed (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2621910246960723989, guid: a7cb92615fcb39e44ad62ab35171bc59, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8384770634944122057, guid: a7cb92615fcb39e44ad62ab35171bc59, type: 3}
       propertyPath: m_RootOrder

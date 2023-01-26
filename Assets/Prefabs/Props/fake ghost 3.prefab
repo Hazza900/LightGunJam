@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2933238723176214979}
   - component: {fileID: 6852002479132161407}
   - component: {fileID: -526871202763451289}
-  - component: {fileID: 2235792950253063807}
+  - component: {fileID: 1800142996882145586}
   m_Layer: 6
   m_Name: fake ghost 3
   m_TagString: Untagged
@@ -27,14 +27,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5969042798754773544}
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!33 &2933238723176214979
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -98,7 +98,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.97349274, y: 0.22760195, z: 1.0016471}
   m_Center: {x: 0.1565188, y: 0.1138009, z: 0.5034643}
---- !u!114 &2235792950253063807
+--- !u!114 &1800142996882145586
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -110,9 +110,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12109ff1a1d7ebc4fadd9462f2588277, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ghostType: 0
-  ghostPointValue: 0
-  ghostSFX: {fileID: 0}
-  ghostAnimation: {fileID: 0}
-  ghostVisibilityTime: 0
-  currentLocation: {fileID: 0}
+  ghostType: 1
+  ghostPointValue: 10
+  ghostSFX:
+  - {fileID: 8300000, guid: 82451c835973cfc4197166fc4d346c5e, type: 3}
+  - {fileID: 8300000, guid: 336f02e38a13dac46a3ceda3db2e01ad, type: 3}
+  - {fileID: 8300000, guid: a34644795c7ab6a4b809c4ca242d32a1, type: 3}
+  - {fileID: 8300000, guid: ce73d98355ff0be43bc1497412f6ded5, type: 3}
+  - {fileID: 8300000, guid: 1eb7e90969a5596489cdfaadfc24995d, type: 3}
+  - {fileID: 8300000, guid: 21261bbb066cc3a4cb729981cb780773, type: 3}
+  - {fileID: 8300000, guid: ae31f8990e744fd45899341cda989035, type: 3}
+  ghostMat: {fileID: 0}
+  fearPerSecond: 0
+  ghostFearReduction: 5

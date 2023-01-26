@@ -30,9 +30,15 @@ public class EnemySpawnManager : MonoBehaviour
                 Instantiate(normalEnemyTypes[enemyIndex], spawnLocations[locationIndex].position, spawnLocations[locationIndex].rotation);
                 spawnLocations.RemoveAt(locationIndex);
             }
-            else
+            else if(specialEnemyTypes.Count > 0)
             {
-                return;
+                enemyIndex = Random.Range(0, specialEnemyTypes.Count);
+
+                if (!specialEnemyTypes[enemyIndex].activeSelf)
+                {
+                    specialEnemyTypes[enemyIndex].SetActive(true);
+                    specialEnemyTypes.RemoveAt(enemyIndex);
+                }
             }
         }
 
@@ -43,6 +49,7 @@ public class EnemySpawnManager : MonoBehaviour
             if (!specialEnemyTypes[enemyIndex].activeSelf)
             {
                 specialEnemyTypes[enemyIndex].SetActive(true);
+                specialEnemyTypes.RemoveAt(enemyIndex);
             }
             else
             {

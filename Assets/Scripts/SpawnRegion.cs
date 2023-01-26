@@ -12,13 +12,6 @@ public class SpawnRegion : MonoBehaviour
     CinemachineDollyCart playerCart;
     [SerializeField]
     PlayerController playerController;
-    public enum RegionType
-    {
-        NormalMovement,
-        SlowMovement,
-        StopMovement
-    }
-    public RegionType regionType;
 
     [SerializeField]
     List<Transform> regionSpawnLocations;
@@ -32,9 +25,6 @@ public class SpawnRegion : MonoBehaviour
     bool canSpawn;
     bool enemySpawned;
     bool cooldownActive;
-
-    bool reducePlayerSpeed;
-    bool increasePlayerSpeed;
 
     float delta;
 
@@ -68,39 +58,6 @@ public class SpawnRegion : MonoBehaviour
         {
             HandleEnemySpawn();
         }
-
-        if(reducePlayerSpeed && playerCart.m_Speed > 0)
-        {
-            if((int)regionType == 1)
-            {
-                playerCart.m_Speed -= 0.005f;
-                if (playerCart.m_Speed <= playerController.playerSlowSpeed)
-                {
-                    reducePlayerSpeed = false;
-                    playerCart.m_Speed = playerController.playerSlowSpeed;
-                }
-            }
-            else if((int)regionType == 2)
-            {
-                playerCart.m_Speed -= 0.0005f;
-                if(playerCart.m_Speed <= 0)
-                {
-                    reducePlayerSpeed = false;
-                    playerCart.m_Speed = 0;
-                }
-            }
-            
-        }
-
-        if(increasePlayerSpeed && playerCart.m_Speed < playerController.defaultPlayerSpeed)
-        {
-            playerCart.m_Speed += 0.05f;
-            if (playerCart.m_Speed >= playerController.defaultPlayerSpeed)
-            {
-                increasePlayerSpeed = false;
-                playerCart.m_Speed = playerController.defaultPlayerSpeed;
-            }
-        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -113,19 +70,7 @@ public class SpawnRegion : MonoBehaviour
             enemySpawnManager.specialEnemyTypes.Clear();
             if(specialSpawns.Count > 0) enemySpawnManager.specialEnemyTypes.AddRange(specialSpawns);
 
-           
-            if((int)regionType == 0)
-            {
-                HandleNormalMovement();
-            }
-            if((int)regionType == 1)
-            {
-                HandleSlowMovement();
-            }
-            if ((int)regionType == 2)
-            {
-                HandleStopMovement();
-            }
+            HandleNormalMovement();
         }
     }
 
@@ -134,7 +79,6 @@ public class SpawnRegion : MonoBehaviour
         if (other.tag == "Player")
         {
             enemySpawnManager.spawnLocations.Clear();
-            increasePlayerSpeed = true;
             canSpawn = false;
             enemySpawned = false;
             cooldownActive = false;
@@ -152,23 +96,10 @@ public class SpawnRegion : MonoBehaviour
 
     private void HandleNormalMovement()
     {
-        playerCart.m_Speed = playerController.defaultPlayerSpeed;
-        enemySpawnManager.SpawnEnemy();
-        enemySpawned = true;
-        cooldownActive = true;
-    }
-    private void HandleSlowMovement()
-    {
-        reducePlayerSpeed = true;
         enemySpawnManager.SpawnEnemy();
         enemySpawned = true;
         cooldownActive = true;
     }
 
-    private void HandleStopMovement()
-    {
-        playerCart.m_Speed = playerController.defaultPlayerSpeed;
-        reducePlayerSpeed = true;
-    }
 
 }
