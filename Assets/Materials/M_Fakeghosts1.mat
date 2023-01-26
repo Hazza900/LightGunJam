@@ -110,12 +110,12 @@ Material:
     - _edge_width: 0.1
     - _noise_scale: 42.3
     - _noise_strength: 1
-    - _softness: -0.04
-    - _strength: 0.03
-    - _wibble_density: 2.19
+    - _softness: -0.043
+    - _strength: 0.02
+    - _wibble_density: 3.01
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _dissolve_edge_colour: {r: 21.36125, g: 21.36125, b: 21.36125, a: 0}
-    - _wibble: {r: 1.1, g: 0, b: 0, a: 0}
+    - _wibble: {r: 0.8, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
