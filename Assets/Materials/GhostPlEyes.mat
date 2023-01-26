@@ -56,6 +56,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _basecolour:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _colour:
         m_Texture: {fileID: 2800000, guid: b3374f1d45d6cf64c8a85053ada4c41d, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -88,14 +92,19 @@ Material:
     - _SrcBlend: 1
     - _UVSec: 0
     - _ZWrite: 1
+    - _cut_off_height: 9.6
     - _dissolve: -1
-    - _softness: 0.5
-    - _strength: 0.1
-    - _wibble_density: 3.5
+    - _edge_width: 0.15
+    - _noise_scale: 25.07
+    - _noise_strength: 1.8
+    - _softness: 0.65
+    - _strength: 0.03
+    - _wibble_density: 4.13
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
-    - _wibble: {r: 0.24, g: 0, b: 0, a: 0}
+    - _dissolve_edge_colour: {r: 1, g: 1, b: 1, a: 0}
+    - _wibble: {r: 0.7, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &215467049810199084
 MonoBehaviour:
